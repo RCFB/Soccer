@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>{{team['name']}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <span class="navbar-brand">{{team['name']}}</span>
+        <div class="navbar-nav mr-auto">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/sign_in.html">Sign in</a>
+        </div>
+        <span class="navbar-text"></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <br><br>
+    <div class="container">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th></th>
+            <th>MP</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>+/-</th>
+            <th>PTS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{row['team']['name']}}</td>
+            <td>{{row['stats']['match_played_count']}}</td>
+            <td>{{row['stats']['points']}}</td>
+            <td>{{row['stats']['won_match_count']}}</td>
+            <td>{{row['stats']['lost_match_count']}}</td>
+            <td>{{row['stats']['draw_match_count']}}</td>
+            <td>{{row['stats']['goals_for']}}</td>
+            <td>{{row['stats']['goals_against']}}</td>
+            <td>{{row['stats']['goal_difference']}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Matches</h2>
+      
+      <table class="table table-striped">
+          
+        <tbody>
+            
+          {% for match in played_matches %}
+          <tr>
+            <td>{{match['date'].date()}}</td>
+            <td>
+                <a href="{{url_for('show_team', team_id=match['team0'])}}">
+                  {{match['team0_name']}}</a>
+            </td>
+            <td>{{match['score0']}} - {{match['score1']}}</td>
+            <td>
+              <a href="{{url_for('show_team', team_id=match['team1'])}}">{{match['team1_name']}}</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

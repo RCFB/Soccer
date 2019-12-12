@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% from "_helpers.html" import render_field %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <div  class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+    <form method="post">
+        {{ form.csrf_token }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.password) }}
+        {{ render_field(form.confirm) }}
+        <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+{% endblock %}
+
+<!-- 
+  -->

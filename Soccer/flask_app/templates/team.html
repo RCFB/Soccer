@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} {{team['name']}} {% endblock %}
+{% block content %}
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th></th>
+            <th>MP</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>+/-</th>
+            <th>PTS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{row['team']['name']}}</td>
+            <td>{{row['stats']['match_played_count']}}</td>
+            <td>{{row['stats']['points']}}</td>
+            <td>{{row['stats']['won_match_count']}}</td>
+            <td>{{row['stats']['lost_match_count']}}</td>
+            <td>{{row['stats']['draw_match_count']}}</td>
+            <td>{{row['stats']['goals_for']}}</td>
+            <td>{{row['stats']['goals_against']}}</td>
+            <td>{{row['stats']['goal_difference']}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Matches</h2>
+      
+      <table class="table table-striped">
+          
+        <tbody>
+            
+          {% for match in played_matches %}
+          <tr>
+            <td>{{match['date'].date()}}</td>
+            <td>
+                <a href="{{url_for('show_team', team_id=match['team0'])}}">
+                  {{match['team0_name']}}</a>
+            </td>
+            <td>{{match['score0']}} - {{match['score1']}}</td>
+            <td>
+              <a href="{{url_for('show_team', team_id=match['team1'])}}">{{match['team1_name']}}</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endblock %}

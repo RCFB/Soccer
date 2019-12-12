@@ -1,0 +1,3 @@
+export FLASK_APP=flask_app
+export FLASK_ENV=development
+export FLASK_SECRET_KEY='8a512y2acan7zacexec'

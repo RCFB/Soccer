@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Edit match</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <span class="navbar-brand">Edit match</span>
+        <div class="navbar-nav mr-auto">
+          <a class="nav-link" href="/ranking_admin.html">Home</a>
+          <a class="nav-link" href="/users.html">Users</a>
+          <a class="nav-link" href="/admin_panel.html">Admin Panel</a>
+          <a class="nav-link" href="/">Log out</a>
+        </div>
+        <span class="navbar-text">admin@example.com</span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <br><br>
+    <div class="container">
+      <form action="/admin_panel.html" method="post">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input class="form-control" id="date" name="date" required="" type="date">
+        </div>
+        <div class="form-group">
+          <label for="team0">Home team</label>
+          <select class="form-control" id="team0" name="team0" required="">
+            <option value="18" selected="selected">Angers</option>
+            <option value="9">Bordeaux</option>
+            <option value="17">Dijon</option>
+            <option value="14">Gap</option>
+            <option value="16">Grenoble</option>
+            <option value="13">Le Havre</option>
+            <option value="10">Lille</option>
+            <option value="3">Lyon</option>
+            <option value="2">Marseille</option>
+            <option value="8">Montpellier</option>
+            <option value="6">Nantes</option>
+            <option value="5">Nice</option>
+            <option value="19">Nîmes</option>
+            <option value="1">Paris</option>
+            <option value="12">Reims</option>
+            <option value="11">Rennes</option>
+            <option value="7">Strasbourg</option>
+            <option value="15">Toulon</option>
+            <option value="4">Toulouse</option>
+            <option value="20">Villeurbanne</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="score0">Home team's score</label>
+          <input class="form-control" id="score0" name="score0" required="" step="1" type="number">
+        </div>
+        <div class="form-group">
+          <label for="team1">Away team</label>
+          <select class="form-control" id="team1" name="team1" required="">
+            <option value="18" selected="selected">Angers</option>
+            <option value="9">Bordeaux</option>
+            <option value="17">Dijon</option>
+            <option value="14">Gap</option>
+            <option value="16">Grenoble</option>
+            <option value="13">Le Havre</option>
+            <option value="10">Lille</option>
+            <option value="3">Lyon</option>
+            <option value="2">Marseille</option>
+            <option value="8">Montpellier</option>
+            <option value="6">Nantes</option>
+            <option value="5">Nice</option>
+            <option value="19">Nîmes</option>
+            <option value="1">Paris</option>
+            <option value="12">Reims</option>
+            <option value="11">Rennes</option>
+            <option value="7">Strasbourg</option>
+            <option value="15">Toulon</option>
+            <option value="4">Toulouse</option>
+            <option value="20">Villeurbanne</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="score1">Away team's score</label>
+          <input class="form-control" id="score1" name="score1" required="" step="1" type="number">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

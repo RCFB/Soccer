@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Ranking {% endblock %}
+{% block content %}
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th></th>
+            <th>MP</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>+/-</th>
+            <th>PTS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in ranking %}
+          <tr class="">
+            <td>
+              <a href="{{url_for('show_team', team_id=row['team']['id'])}}">
+                {{row['team']['name']}}
+            </td>
+            <td>{{row['stats']['match_played_count']}}</td>
+            <td>{{row['stats']['points']}}</td>
+            <td>{{row['stats']['won_match_count']}}</td>
+            <td>{{row['stats']['lost_match_count']}}</td>
+            <td>{{row['stats']['draw_match_count']}}</td>
+            <td>{{row['stats']['goals_for']}}</td>
+            <td>{{row['stats']['goals_against']}}</td>
+            <td>{{row['stats']['goal_difference']}}</td>
+          </tr>
+
+          {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+      {% endblock %}

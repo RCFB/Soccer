@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Users{% endblock %}
+{% block content %}
+<table class="table table-striped">
+  <tbody>
+      {% for user in users %}
+      <tr>
+        <td>
+          <span class="btn">{{user.email}}</span>
+        </td>
+        <td style="text-align: right">
+          <a href="#" class="btn btn-sm"><i class="material-icons">delete</i></button>
+        </td>
+        <td style="text-align: right">
+          {% if user['admin'] == 1 %}
+          <a href="#" class="btn btn-sm"><i class="material-icons">star</i></button>
+          {% else %}
+          <a href="#" class="btn btn-sm"><i class="material-icons">star_border</i></button>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+      {% endblock %}
